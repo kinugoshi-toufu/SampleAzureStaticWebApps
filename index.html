@@ -1,1 +1,9 @@
 hello world
+<b id="res">...</b>
+
+<script>
+(async function() {
+    const { time } = await( await fetch(`/api/HttpTrigger1`)).json();
+    document.querySelector('#res').textContent = time;
+}());
+</script>
