@@ -1,13 +1,21 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+module.exports = async function (context) {
+    context.res.json({
+        time: get_time()
+    });
+};
 
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
+function get_time(){
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth()+1;
+    var date = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    return (
+        year + "/" + 
+        month + "/" +
+        date + " " +
+        hour + ":" +
+        minute
+    );
 }
