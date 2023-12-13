@@ -1,3 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡単なサンプルサイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+        }
+
+        #message {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>簡単なサンプルサイト</h1>
+
+    <button onclick="displayMessage()">クリックしてメッセージを表示</button>
+
+    <p id="message"></p>
+
+    <script>
+        function displayMessage() {
+            var messageElement = document.getElementById("message");
+            messageElement.innerHTML = "こんにちは、サンプルサイトへようこそ！";
+        }
+    </script>
+
+</body>
+</html>
+
+
 <b id="res">...</b>
 
 <script>
