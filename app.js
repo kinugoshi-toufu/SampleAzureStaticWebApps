@@ -2,7 +2,7 @@ $(function () {
 
     var AMEDAS_POINT = '46141'; // アメダス地点コード辻堂
     //var AMEDAS_POINT = '66446'; // アメダス地点コード倉敷
-    var ELEM = 'wind'; // 表示要素
+    var ELEM = 'temp'; // 表示要素
   
     // 最新時刻取得
     $.ajax({ url: '//www.jma.go.jp/bosai/amedas/data/latest_time.txt' })
