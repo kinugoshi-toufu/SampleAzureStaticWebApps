@@ -45,7 +45,7 @@ $(function () {
           });
 
           // スタイルを追加してセルの間に余白を設定
-          $('table td, table th').css('padding', '50px');
+          $('table td, table th').css('padding', '10px');
         });
       });
 });
