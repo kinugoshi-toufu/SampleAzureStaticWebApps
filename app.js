@@ -1,7 +1,8 @@
 $(function () {
 
-    var AMEDAS_POINT = '54841'; // アメダス地点コード
-    var ELEM = 'temp'; // 表示要素
+    var AMEDAS_POINT = '46141'; // アメダス地点コード辻堂
+    //var AMEDAS_POINT = '66446'; // アメダス地点コード倉敷
+    var ELEM = 'wind'; // 表示要素
   
     // 最新時刻取得
     $.ajax({ url: '//www.jma.go.jp/bosai/amedas/data/latest_time.txt' })
@@ -42,7 +43,9 @@ $(function () {
               .append($('<td>').text(JMAWebUtility.date.strftime(time, '%Y/%m/%d %H:%M')))
               .append($('<td>').text(merged[timeStr][ELEM][0]));
           });
+
+          // スタイルを追加してセルの間に余白を設定
+          $('table td, table th').css('padding', '10px');
         });
       });
-  });
-  
+});
