@@ -4,6 +4,9 @@ $(function () {
     //var AMEDAS_POINT = '66446'; // アメダス地点コード倉敷
     var ELEM = 'temp'; // 表示要素
   
+    // 現在の時刻取得
+    var currentDateTime = new Date();
+
     // 最新時刻取得
     $.ajax({ url: '//www.jma.go.jp/bosai/amedas/data/latest_time.txt' })
       .done(function (txt) {
@@ -14,13 +17,14 @@ $(function () {
         var baseStr = JMAWebUtility.date.strftime(baseTime, '%Y%m%d_');
         var yesterdayStr = JMAWebUtility.date.strftime(yesterday, '%Y%m%d_');
         var requests = {};
+
+        // 過去のデータリクエスト
         ['00', '03', '06', '09', '12', '15', '18', '21'].forEach(function (th) {
-          requests[yesterdayStr + th] = '//www.jma.go.jp/bosai/amedas/data/point/' + AMEDAS_POINT + '/' + yesterdayStr + th + '.json';
+          if (currentDateTime.getHours() >= Number(th)) {
+            requests[baseStr + th] = '//www.jma.go.jp/bosai/amedas/data/point/' + AMEDAS_POINT + '/' + baseStr + th + '.json';
+          }
         });
-        ['00', '03', '06', '09', '12', '15', '18', '21'].forEach(function (th) {
-          if (Number(th) > baseTime.getUTCHours()) return;
-          requests[baseStr + th] = '//www.jma.go.jp/bosai/amedas/data/point/' + AMEDAS_POINT + '/' + baseStr + th + '.json';
-        });
+
         // データの取得
         JMAWebUtility.parallelRequest(requests, function (data) {
           // ３時間ごとでは使いにくいので、１つにまとめる。
