@@ -30,6 +30,10 @@ $(function () {
               merged[timeStr] = data[fkey][timeStr];
             });
           });
+
+          // データが取得できたことをコンソールにログ出力
+          console.log('取得したデータ:', merged);
+
           // テーブル作成
           var table = $('<table>').appendTo('#target');
           $('<tr>')
