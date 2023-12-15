@@ -44,7 +44,6 @@ $(function () {
               .append($('<td>').text(merged[timeStr][ELEM][0]));
           });
 
-          
           // スタイルを追加してセルの間に余白を設定
           $('table td, table th').css('padding', '10px');
         });
