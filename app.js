@@ -1,7 +1,7 @@
 $(function () {
 
-    var AMEDAS_POINT = '46141'; // アメダス地点コード辻堂
-    //var AMEDAS_POINT = '66446'; // アメダス地点コード倉敷
+    //var AMEDAS_POINT = '46141'; // アメダス地点コード辻堂
+    var AMEDAS_POINT = '66446'; // アメダス地点コード倉敷
     var ELEM = 'temp'; // 表示要素
   
     // 現在の時刻取得
